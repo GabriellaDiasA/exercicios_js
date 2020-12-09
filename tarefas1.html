@@ -3,26 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dobro</title>
+    <title>Dobro, Metade, Saudações</title>
 </head>
 <body>
     <script>
 
+        var numero;
+
+        function pulaLinha(){
+            document.write("<br>");
+        }
+
+        function inputNome(){
+            var nome = prompt("Escreva seu nome");
+            return nome;
+        }
+
         function inputNumero(){
             var n = prompt("Escreva o número");
-            return n;
+            numero = n;
         };
 
         function dobro(){
-            var n = inputNumero();
+            var n = numero;
             return 2*n;
         }
 
-        function outputNumero(n){
-            document.write("O dobro do número é: " + n );
+        function metade(){
+            var n = numero;
+            return n/2;
         }
 
-        outputNumero(dobro());
+        function saudacoes(){
+            nome = inputNome();
+            document.write("Olá, " + nome + "! Tudo bem?");
+            pulaLinha();
+        }
+
+        function outputNumeros(dobro, metade){
+            document.write("O dobro do número é: " + dobro );
+            pulaLinha();
+            document.write("A metade do número é: " + metade);
+            pulaLinha();
+        }
+
+        saudacoes();
+        inputNumero();
+        outputNumeros(dobro(), metade());
 
     </script>
 </body>
