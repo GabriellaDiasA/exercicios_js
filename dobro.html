@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobro</title>
+</head>
+<body>
+    <script>
+
+        function inputNumero(){
+            var n = prompt("Escreva o número");
+            return n;
+        };
+
+        function dobro(){
+            var n = inputNumero();
+            return 2*n;
+        }
+
+        function outputNumero(n){
+            document.write("O dobro do número é: " + n );
+        }
+
+        outputNumero(dobro());
+
+    </script>
+</body>
+</html>
