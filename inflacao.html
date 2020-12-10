@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflação</title>
+</head>
+<body>
+    <script>
+
+        var dias = 6;
+        var precoTomateAntes = 3.30;
+        var precoTomateDepois = 4.70;
+        var precoArrozAntes = 2.99;
+        var precoArrozDepois = 3.25;
+        var precoCenouraAntes = 3.99;
+        var precoCenouraDepois = 4.14;
+
+        function calcularInflacaoTotal(precoAntes, precoDepois){
+            num = 100 * (precoDepois - precoAntes) / precoAntes;
+            return Math.round((num + Number.EPSILON) * 100) / 100;
+        }
+
+        function calcularInflacaoDiaria(numero){
+            num = numero / dias;
+            return Math.round((num + Number.EPSILON) * 100) / 100;
+        }
+
+        function exibir(texto){
+            document.write(texto + "<br>");
+        }
+
+        function media(num1, num2, num3){
+
+            var media = (num1 + num2 + num3)/3;
+            return Math.round((media + Number.EPSILON) * 100) / 100;
+        }
+
+        var inflacaoTomate = calcularInflacaoTotal(precoTomateAntes, precoTomateDepois);
+        var inflacaoArroz = calcularInflacaoTotal(precoArrozAntes, precoArrozDepois);
+        var inflacaoCenoura = calcularInflacaoTotal(precoCenouraAntes, precoCenouraDepois);
+
+        exibir("A inflação total do tomate: " + inflacaoTomate + "%");
+        exibir("A inflação total do arroz: " + inflacaoArroz + "%");
+        exibir("A inflação total da cenoura: " + inflacaoCenoura + "%");
+        exibir("A inflação diária do tomate: " + calcularInflacaoDiaria(inflacaoTomate) + "%");
+        exibir("A inflação diária do arroz: " + calcularInflacaoDiaria(inflacaoArroz) + "%");
+        exibir("A inflação diária do cenoura: " + calcularInflacaoDiaria(inflacaoCenoura) + "%");
+        exibir("Inflação média: " + media(inflacaoTomate, inflacaoArroz, inflacaoCenoura));
+
+    </script>
+</body>
+</html>
