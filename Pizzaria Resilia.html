@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação com nome</title>
+</head>
+<body>
+    <script>
+
+        var nomePizza;
+        var custoPizza;
+        var precoPizza;
+        var imposto = 8.9/100;
+
+        function recebeDados(){
+            nomePizza = prompt("Nome da pizza: ");
+            custoPizza = prompt("Custo de produção da pizza " + nomePizza + ":");
+            precoPizza = prompt("Preço de venda da pizza " + nomePizza + ":");
+        }
+
+        function calculaLucro(){
+            var lucro = precoPizza*(1 - imposto) - custoPizza;
+            return Math.round(lucro * 100)/100;
+        }
+
+        function exibeResultado(){
+            document.write("O lucro associado à pizza " + nomePizza + " é: R$" + calculaLucro() + ".");
+        }
+
+        recebeDados();
+        exibeResultado();
+
+    </script>
+</body>
+</html>
