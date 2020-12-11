@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto por 9</title>
+</head>
+<body>
+    <script>
+        
+        var numero;
+
+        function resto(num){
+            var resto = num%9;
+            return "O resto de " + num + " divididos por 9 é: " + resto;
+        }
+
+        numero = prompt("Qual é o número?");
+        document.write(resto(numero));
+    </script>
+</body>
+</html>
