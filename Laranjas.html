@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação com nome</title>
+</head>
+<body>
+    <script>
+
+        var numVizinhos;
+        var numLaranjas;
+
+        function recebeDados(){
+            numVizinhos = prompt("Quantos vizinhos tem Joselito?");
+            numLaranjas = prompt("Quantas laranjas tem Joselito?");
+        }
+
+        function calculaLaranjas(){
+            var distribuir = Math.floor(numLaranjas/numVizinhos);
+            var resto = numLaranjas%numVizinhos;
+            return "Cada vizinho recebe " + distribuir + " laranja(s).<br>Joselito terá " + resto + " laranja(s) no final.<br>";
+        }
+
+        function exibeResultados(){
+            document.write(calculaLaranjas());
+        }
+
+        recebeDados();
+        exibeResultados();
+
+    </script>
+</body>
+</html>
