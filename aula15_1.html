@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 15</title>
+</head>
+<body>
+    <script>
+        function testeDirigir(idadeUsuario, idadeDirigir){
+            if(idadeUsuario<idadeDirigir){
+            console.log("Você não pode dirigir");
+            }
+            else{
+            console.log("Você pode dirigir");
+            }
+        }
+
+        function testeAlcool(idadeUsuario, idadeBebida){
+            if(idadeUsuario<idadeBebida){
+                console.log("Você não pode beber");
+            }
+            else{
+                console.log("Você pode beber");
+            }
+        }
+
+        function testeSemaforo(texto){
+            switch(texto){
+                case 'Verde':
+                    console.log("pode passar!");
+                    break;
+                case 'Amarelo':
+                    console.log("melhor freiar");
+                    break;
+                case 'Vermelho':
+                    console.log("pare já!");
+                    break;
+                default:
+                    console.log("Semáforo quebrado!");
+            }
+        }
+
+        function exibeMenu(){
+            console.log("1-Refrigerante\n2-Suco\n3-Água");
+        }
+
+
+        function testeMenuNumero(){
+            var escolha;
+            exibeMenu();
+            escolha = prompt("Escolha um item");
+            switch(escolha){
+                case '1':
+                    console.log(escolha);
+                    break;
+                case '2':
+                    console.log(escolha);
+                    break;
+                case '3':
+                    console.log(escolha);
+                    break;
+                default:
+                    console.log(escolha);
+            }
+        }
+
+        function testeMenuNome(){
+            var escolha;
+            exibeMenu();
+            escolha = prompt("Escolha um item");
+            switch(escolha){
+                case '1':
+                    console.log("Refrigerante");
+                    break;
+                case '2':
+                    console.log("Suco");
+                    break;
+                case '3':
+                    console.log("Água");
+                    break;
+                default:
+                    console.log("Item inválido");
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

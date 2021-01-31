@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifra de César</title>
+</head>
+<body>
+    <script>
+        function deslocaMensagem(deslocamento, mensagem, intervalo){
+            
+            var tamanhoMsg = mensagem.length;               //Numero de caracteres a serem deslocados
+            var numeroIntervalos = intervalo.length;        //Quantos intervalos a serem considerados
+            var indices = [];                               //Array para guardar os numeros já deslocados
+            var valorNovo = 0;                              //Char code deslocado, a ser inserido no array indices
+            var mensagemNova = "";                          //A mensagem codificada. Inicializada "" pois daria undefined sem isso
+            var check = 0;                                  //Checa se algum caracter não pode entrar em intervalo algum, para ser ignorado
+            var intervaloUpper;                             //Maior char code de um intervalo 
+            var intervaloBottom;                            //Menos char code de um intervalo
+            var charDaVez;                                  //Chegou sua vez.
+            
+            for (var i = 0; i < tamanhoMsg; i++){           //O primeiro for varre todos os caracters da mensagem inicial
+                check = 0;                                  //A variavel de checagem deve ser resetada a cada novo caracter
+                charDaVez = mensagem.charCodeAt(i);
+
+                for(var j = 0; j < numeroIntervalos; j++){
+                    intervaloUpper = intervalo[j][1].charCodeAt();
+                    intervaloBottom = intervalo[j][0].charCodeAt();
+
+                    if(charDaVez >= intervaloBottom && charDaVez <= intervaloUpper){
+                        var tamanhoDoIntervalo = intervaloUpper - intervaloBottom;
+                        valorNovo = (((charDaVez - intervaloBottom) + deslocamento)%tamanhoDoIntervalo) + intervaloBottom;  //Maths...
+                        indices.push(valorNovo);
+                        mensagemNova += String.fromCharCode(indices[i]);
+                    }
+                    else{
+                        check += 1;                         //A variável de checagem aumenta a cada intervalo (j) não alcançado...
+                    }
+                    if(check >= numeroIntervalos){          //...Mas só escrevemos o caracter sem deslocar se ele entrou em NENHUM intervalo
+                        indices[i] = charDaVez;
+                        mensagemNova += String.fromCharCode(indices[i]);
+                    }
+                }
+            }
+            return mensagemNova;
+        }
+
+        var deslocamento = 16;
+        var mensagem = "bom dia belo mundo! BOM DIA BELO MUNDO!";
+        var intervalo = [["a", "z"], ["A", "Z"]];
+        console.log(deslocaMensagem(deslocamento, mensagem, intervalo));
+
+    </script>
+</body>
+</html>
